@@ -1,0 +1,18 @@
+.currency-converter {
+    width: 80%;
+    margin: auto;
+}
+
+.input-box > h2 {
+    color: rgb(238, 238, 238);
+    margin-bottom: 0;
+    font-size: 30px;
+    letter-spacing: 1px;
+}
+
+div.input-box > p {
+    color: rgba(87, 86, 86, 0.637);
+    font-size: 12px;
+    font-weight: 600;
+    margin-top: 10px;
+}

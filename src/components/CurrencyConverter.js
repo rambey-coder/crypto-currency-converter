@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
 import ExchangeRate from './ExchangeRate'
+import './CurrencyConverter.css'
 import axios from 'axios';
 
 const CurrencyConverter = () => {
 
-  const currencies = ['BTC', 'ETH', 'USD', 'XRP', 'LTC', 'ADA', 'BIX'];
+  const currencies = ['BTC', 'ETH', 'USD', 'XRP', 'LTC', 'ADA'];
 
   const [primaryCurrency, setPrimaryCurrency] = useState('BTC')
 
@@ -12,9 +13,9 @@ const CurrencyConverter = () => {
 
   const [amountRate, setAmountRate] = useState('')
 
-  const [exchangeRate, setExchangeRate] = useState(0);
+  const [exchangeRate, setExchangeRate] = useState('');
 
-  const [resultRate, setResultRate] = useState(0)
+  const [resultRate, setResultRate] = useState('')
   
   console.log(amountRate);
   
@@ -35,27 +36,29 @@ const CurrencyConverter = () => {
       setExchangeRate(res.data["Realtime Currency Exchange Rate"]["5. Exchange Rate"])
       setResultRate(res.data["Realtime Currency Exchange Rate"]["5. Exchange Rate"] * amountRate);
     })
-    .catch(err => console.log(err.data));
+    .catch(err => alert(err.data));
   }
-  console.log(resultRate);
+
+  const current = new Date()
+  const date = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
 
   return (
     <div className='currency-converter'>
       <div className='input-box'>
-        <h2>CurrencyConverter</h2>
-        <table>
-          <tbody>
-            <tr>
-              <td>Primary Currency</td>
-              <td>
+        <h2>Currency Converter</h2>
+        <p>Today, {date}</p>
+
+        <div className='converter-container'>
+            <div className='converter-data'>
+              <h6>From {primaryCurrency}</h6>
+              <div className='data-container'>
                 <input 
                   type='number'
                   name='currency-amount-1'
                   value={amountRate}
                   onChange={e => setAmountRate(e.target.value)}
                 />
-              </td>
-              <td>
+
                 <select
                 value={primaryCurrency}
                 name='currency-option-1'
@@ -67,19 +70,18 @@ const CurrencyConverter = () => {
                     .map((currency, index) => (<option key={index}>{currency}</option>))
                   } 
                 </select>
-              </td>
-            </tr>
+              </div>
+            </div>
 
-            <tr>
-              <td>Secondary Currency</td>
-              <td>
+            <div className='converter-data'>
+              <h6>To {secondaryCurrency}</h6>
+              <div className='data-container'>
                 <input 
                   name='currency-amount-2'
                   value={resultRate}
                   disabled={true}
                 />
-              </td>
-              <td>
+
                 <select
                 value={secondaryCurrency}
                 name='currency-option-2'
@@ -91,10 +93,9 @@ const CurrencyConverter = () => {
                     .map((currency, index) => (<option key={index}>{currency}</option>))
                   }
                 </select>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+              </div>
+            </div>
+        </div>
         <button className='convert-btn' onClick={handleConvert}>Convert</button>
       </div>
       <ExchangeRate 
