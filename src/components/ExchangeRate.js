@@ -1,4 +1,5 @@
 import React from 'react'
+import './ExchangeRate.css'
 
 const ExchangeRate = ({ exchangeRate, primaryCurrency, secondaryCurrency }) => {
   return (
@@ -6,7 +7,7 @@ const ExchangeRate = ({ exchangeRate, primaryCurrency, secondaryCurrency }) => {
       <h2>Exchange Rate</h2>
       <h1>{Math.round(exchangeRate)}</h1> 
       <span>{secondaryCurrency}</span>
-      <p>{primaryCurrency} to {secondaryCurrency}</p>
+      {/* <p>{primaryCurrency} to {secondaryCurrency}</p> */}
     </div>
   )
 }

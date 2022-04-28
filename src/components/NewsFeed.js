@@ -15,11 +15,11 @@ const NewsFeed = () => {
     };
     
     axios.request(options)
-    .then(res => { console.log(res.data)
+    .then(res => {
     setArticles(res.data)})
-    .catch(err => { console.error(err)})
+    .catch(err => { alert(err.data)})
   }, [])
-  console.log(articles);
+  // console.log(articles);
 
   const firstArt = articles?.slice(0,10)
 

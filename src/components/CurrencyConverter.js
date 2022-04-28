@@ -17,7 +17,7 @@ const CurrencyConverter = () => {
 
   const [resultRate, setResultRate] = useState('')
   
-  console.log(amountRate);
+  // console.log(amountRate);
   
   const handleConvert = () => {
     const options = {
@@ -32,7 +32,6 @@ const CurrencyConverter = () => {
     
     axios.request(options)
     .then(res => {
-      console.log(res.data["Realtime Currency Exchange Rate"]["5. Exchange Rate"])
       setExchangeRate(res.data["Realtime Currency Exchange Rate"]["5. Exchange Rate"])
       setResultRate(res.data["Realtime Currency Exchange Rate"]["5. Exchange Rate"] * amountRate);
     })
@@ -48,9 +47,14 @@ const CurrencyConverter = () => {
         <h2>Currency Converter</h2>
         <p>Today, {date}</p>
 
+        <ExchangeRate 
+        exchangeRate={exchangeRate}
+        secondaryCurrency={secondaryCurrency}
+        primaryCurrency={primaryCurrency}
+      />
         <div className='converter-container'>
             <div className='converter-data'>
-              <h6>From {primaryCurrency}</h6>
+              <p>From {primaryCurrency}</p>
               <div className='data-container'>
                 <input 
                   type='number'
@@ -74,7 +78,7 @@ const CurrencyConverter = () => {
             </div>
 
             <div className='converter-data'>
-              <h6>To {secondaryCurrency}</h6>
+              <p>To {secondaryCurrency}</p>
               <div className='data-container'>
                 <input 
                   name='currency-amount-2'
@@ -98,11 +102,7 @@ const CurrencyConverter = () => {
         </div>
         <button className='convert-btn' onClick={handleConvert}>Convert</button>
       </div>
-      <ExchangeRate 
-        exchangeRate={exchangeRate}
-        secondaryCurrency={secondaryCurrency}
-        primaryCurrency={primaryCurrency}
-      />
+      
     </div>
   )
 }

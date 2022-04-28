@@ -1,0 +1,27 @@
+.exchange-rate {
+    width: 70%;
+    margin: auto;
+    text-align: center;
+}
+
+.exchange-rate > h2 {
+    color: rgb(238, 238, 238);
+    font-weight: 200;
+}
+
+.exchange-rate > h1 {
+    color: #41C8F3;
+    font-size: 50px;
+    margin: 0;
+    display: inline;
+}
+
+.exchange-rate > span {
+    color: #23263D;
+    font-weight: 800;
+    margin-left: 5px;
+    font-size: 10px;
+    background-color: #41c9f377;
+    padding: 2px;
+    border-radius: 2px;
+}

@@ -8,4 +8,6 @@ body {
   background: #14142F;
 }
 
-
+* {
+  box-sizing: border-box;
+}
