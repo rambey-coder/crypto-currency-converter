@@ -1,0 +1,37 @@
+.news-feed {
+    width: 80%;
+    margin: auto;
+}
+
+.news-feed > h2 {
+    text-align: center;
+    color: rgb(238, 238, 238);
+    /* margin-bottom: 0; */
+    font-size: 30px;
+    letter-spacing: 1px;
+}
+
+.feed > div > a {
+    color: rgb(238, 238, 238);
+    text-decoration: none;
+    font-size: 13px;
+    letter-spacing: 1px;
+    transition: all .4s ease;
+}
+
+.feed > div > a:hover {
+    color: #41C8F3;
+    text-decoration: underline;
+}
+
+@media screen and (max-width: 880px) {
+    .news-feed {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 680px) {
+    .news-feed {
+        width: 100%;
+    }
+}

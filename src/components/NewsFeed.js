@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
+import './NewsFeed.css'
 
 const NewsFeed = () => {
   const [articles, setArticles] = useState(null)
@@ -26,15 +27,15 @@ const NewsFeed = () => {
   return (
     <div className='news-feed'>
       <h2>NewsFeed</h2>
-      <>
+      <div className='general feed'>
         {
           firstArt?.map((article, index) => (
             <div key={index}>
-              <a href={article.url}><p>{article.title}</p></a>
+              <a href={article.url} target='_blank'><p>{article.title}</p></a>
             </div>)
           )
         }
-      </>
+      </div>
     </div>
   )
 }

@@ -7,6 +7,7 @@
 .exchange-rate > h2 {
     color: rgb(238, 238, 238);
     font-weight: 200;
+    margin-top: 0;
 }
 
 .exchange-rate > h1 {
