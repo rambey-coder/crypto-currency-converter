@@ -46,12 +46,12 @@ const CurrencyConverter = () => {
       <div className='input-box'>
         <h2>Currency Converter</h2>
         <p>Today, {date}</p>
-
-        <ExchangeRate 
-        exchangeRate={exchangeRate}
-        secondaryCurrency={secondaryCurrency}
-        primaryCurrency={primaryCurrency}
-      />
+        <div className='general'>
+          <ExchangeRate 
+          exchangeRate={exchangeRate}
+          secondaryCurrency={secondaryCurrency}
+          primaryCurrency={primaryCurrency}
+        />
         <div className='converter-container'>
             <div className='converter-data'>
               <p>From {primaryCurrency}</p>
@@ -99,8 +99,9 @@ const CurrencyConverter = () => {
                 </select>
               </div>
             </div>
+            </div>
+            <button className='convert-btn' onClick={handleConvert}>Convert</button>
         </div>
-        <button className='convert-btn' onClick={handleConvert}>Convert</button>
       </div>
       
     </div>
